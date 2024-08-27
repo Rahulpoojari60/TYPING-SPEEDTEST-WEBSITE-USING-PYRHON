@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typing Speed Test Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Previous Results</h1>
+        <ul>
+            {% for result in results %}
+            <li>
+                Time Taken: {{ result.time_taken }} seconds, 
+                WPM: {{ result.wpm }}, 
+                Accuracy: {{ result.accuracy }}%
+                ({{ result.timestamp.strftime('%Y-%m-%d %H:%M:%S') }})
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}">Back to Test</a>
+    </div>
+</body>
+</html>

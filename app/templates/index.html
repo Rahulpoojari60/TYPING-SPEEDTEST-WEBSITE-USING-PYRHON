@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Typing Speed Test</h1>
+        <p id="sample-text">{{ sample_text }}</p>
+        <form action="{{ url_for('submit') }}" method="POST">
+            <input type="hidden" name="start_time" id="start_time">
+            <textarea name="typed_text" id="typed_text" rows="4" cols="50"></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('start_time').value = new Date().toISOString();
+    </script>
+</body>
+</html>
